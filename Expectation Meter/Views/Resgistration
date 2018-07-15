@@ -1,0 +1,77 @@
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+<form id="RegistrationForm">
+    
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input required="required" maxlength="150" type="email" class="form-control" id="Email" name="Email">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input required="required" maxlength="25" type="password" class="form-control" id="Password" name="Password">
+    </div>
+
+    <div class="form-group">
+        <label for="full_Name">Full Name:</label>
+        <input required="required" maxlength="30" type="text" class="form-control" id="FullName" name="FullName">
+    </div>
+
+    <div class="form-group">
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="DOB">Date of Birth:</label>
+        <input required="required" maxlength="30" type="date" class="form-control" id="DOB" name="DOB">
+    </div>
+
+    <div class="form-group">
+        <label for="MobileNo">Mobile Number:</label>
+        <input required="required" maxlength="20" type="text" class="form-control" id="MobileNo" name="MobileNo">
+    </div>
+    <button type="button" id="Register" onclick="AddUser();"  class="btn btn-default">Register</button>
+</form>
+
+<script type="text/javascript">
+
+    //$(document).ready(function () {
+    //    AddUser();
+    //});
+    function AddUser() {
+        //$("#RegistrationForm").attr("action", "/Home/AddUser");
+        //$("#RegistrationForm").submit();
+
+        var jqhx = $.ajax({
+            type: "POST",
+            url: "/Home/AddUser",
+
+            data: $("#RegistrationForm").serialize()
+        }).done(function (data) {
+            alert(data);
+        });
+
+
+        //$("#RegistrationForm").submit(function () {
+
+
+
+        //    });
+        //alert("heloo");
+    }
+</script>
+
+
+
+
+
+
